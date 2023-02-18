@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form</title>
-    <link rel="stylesheet" href="SIGNUP.css">
+    <link rel="stylesheet" href="bookslot.css">
     <script>    
         function validate() {    
             var Participantname = document.bookslot.Participantname;    
@@ -99,10 +99,6 @@
             <div class="fields">
                 
                 <label for="event">Event* </label>
-
-                <body>
-                    <h2><i>Event</i> property.</h2>
-                    <form name="dropForm">
                        <select name="dropSelect" onchange="showDropInfo()">
                          <option value="none" selected disabled hidden>Select an Option</option>
                          <option value="1001">1001 Music Festival</option>
@@ -114,21 +110,7 @@
                          <option value="1007">1007 Open Mic</option>
                          <option value="1008">1008 Sudoku ChampionShip</option>
                        </select>
-                    </form>
-                    <p id="pF"></p>
-                    <p id="pS"></p>
-                    <p id="pT"></p>
-                    <script>
-                       function showDropInfo() {
-                          var sT = dropForm.dropSelect;
-                          var pF = document.getElementById('pF');
-                          var pS = document.getElementById('pS');
-                          var pT = document.getElementById('pT');
-                          
-                          pS.innerHTML = ('Event Id: ' + sT[sT.selectedIndex].value);
-                          
-                       }
-                    </script>
+                       
                  </body>
             </div>
             <br>
@@ -136,11 +118,10 @@
         </div>
     
         <br>
+
     
-        <br>
-    
-        <div class="submit">
-            <button type="submit">Book Slot</button>
+        <div class="BookSlot">
+            <button type="Bookslot">Book Slot</button>
         </div>
         <br>
         <br>
