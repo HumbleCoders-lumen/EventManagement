@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="SIGNUP.css">
+    <script>    
+        function validate() {    
+            var Participantname = document.bookslot.Participantname;    
+            var Emailid = document.bookslot.Emailid;    
+            var Phoneno = document.bookslot.phoneno;
+            var Eventdate = document.bookslot.Eventdate;
+            var Eventtime = document.bookslot.Eventtime;    
+            var place = document.bookslot.place;    
+               
+           
+            if (Username.value.length <= 0) {    
+                alert("Name is required");    
+                Username.focus();    
+                return false;    
+            }    
+             
+            }    
+            if (Emailid.value.length <= 0) {    
+                alert("Email id is required");    
+                Emailid.focus();    
+                return false;    
+            }    
+            if (Phoneno.value.length <= 0) {    
+                alert("Phone no is required");    
+                Phoneno.focus();    
+                return false;    
+            }    
+            if (Eventdate.length <= 0) {    
+                alert("Event Date should be mentioned");    
+                Eventdate.focus();    
+                return false;    
+            }    
+            if (Eventtime.length <= 0) {    
+                alert("Event time should be mentioned");    
+                Eventtime.focus();    
+                return false;    
+            }
+            if (place.length <= 0) {    
+                alert("Place should be Entered");    
+                palce.focus();    
+                return false;    
+            }
+
+    </script>   
+</head>
+<body>
+    <h1>Book Your Slot Here</h1>
+    <p></p>
+    <form action="#">
+        <div id="form" class="form">
+            <p>Fields marked with * are mandatory</p>
+            <p>To know more about us <a href="event.html">here</a></p>
+            <div class="fields">
+                Name* : <input type="text" name="name" placeholder="Enter your name">
+            </div>
+    
+            <br>
+    
+            <div class="fields">
+                Email id* : <input type="email" name="email" placeholder="Enter email">
+                
+            </div>
+
+            <br>
+
+            <div class="fields">
+                
+                phone no* : <input type="text" name="phn" id="phn" placeholder="Enter your phone number">
+            </div>
+            <br>
+
+            <div class="fields">
+                Booking date* : <input type="date" name="Event Date" placeholder="Enter Event Date">
+            </div>
+
+            <br>
+
+            <div class="fields">
+                Event time* : <input type="time" name="Event Time" placeholder="Enter Event Time">
+            </div>
+
+            <br>
+
+            <div class="fields">
+                Quantity* : <input type="number" name="Place" placeholder="Number of People">
+            </div>
+           
+            <br>
+          
+          
+            <div class="fields">
+                
+                <label for="event">Event* </label>
+
+                <body>
+                    <h2><i>Event</i> property.</h2>
+                    <form name="dropForm">
+                       <select name="dropSelect" onchange="showDropInfo()">
+                         <option value="none" selected disabled hidden>Select an Option</option>
+                         <option value="1001">1001 Music Festival</option>
+                         <option value="1002">1002 Business Conference</option>
+                         <option value="1003">1003 Hip Hop Beginners Class</option>
+                         <option value="1004">1004 Art & Craft Workshop</option>
+                         <option value="1005">1005 Book Reading Festival</option>
+                         <option value="1006">1006 State Chess ChampionShip</option>
+                         <option value="1007">1007 Open Mic</option>
+                         <option value="1008">1008 Sudoku ChampionShip</option>
+                       </select>
+                    </form>
+                    <p id="pF"></p>
+                    <p id="pS"></p>
+                    <p id="pT"></p>
+                    <script>
+                       function showDropInfo() {
+                          var sT = dropForm.dropSelect;
+                          var pF = document.getElementById('pF');
+                          var pS = document.getElementById('pS');
+                          var pT = document.getElementById('pT');
+                          
+                          pS.innerHTML = ('Event Id: ' + sT[sT.selectedIndex].value);
+                          
+                       }
+                    </script>
+                 </body>
+            </div>
+            <br>
+    
+        </div>
+    
+        <br>
+    
+        <br>
+    
+        <div class="submit">
+            <button type="submit">Book Slot</button>
+        </div>
+        <br>
+        <br>
+    
+        
+    </form>
+</body>
+</html>
