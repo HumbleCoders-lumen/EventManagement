@@ -1,0 +1,1 @@
+CREATE TABLE `eventmanagement`.`participants` (`booking_id` INT NOT NULL AUTO_INCREMENT , `event_id` INT NOT NULL , `booked_date` VARCHAR(255) NOT NULL , `participant_name` VARCHAR(255) NOT NULL , `participant_email` VARCHAR(255) NOT NULL , `participant_phone` VARCHAR(25) NOT NULL , PRIMARY KEY (`booking_id`)) ENGINE = InnoDB;
