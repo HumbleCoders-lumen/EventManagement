@@ -17,31 +17,32 @@ public class Dbfunctions
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eventmanagement", username, password);
-			ps = con.prepareStatement("insert into events values (?,?,?,?,?,?,?,?,?,?)");
+			ps = con.prepareStatement("insert into events(event_name, event_date, organizer_email, organizer_phone, event_description, event_type, event_location, event_status, max_seats) values (?,?,?,?,?,?,?,?,?)");
 			ps1 = con.prepareStatement("select * from events where event_id=?");
 			ps2 = con.prepareStatement("select * from participants where booking_id=?");
+			ps3 = con.prepareStatement("insert into participants(event_id, booked_date, participant_name, participant_email, participant_phone) values(?,?,?,?,?)");
 		}
 		catch(Exception e) 
 		{
 			e.printStackTrace();
 		}
 	}
-	public int insertevent(int event_id, String event_name,  
+	public int insertevent(String event_name,  
 							String event_date, String organizer_email, 
 							String organizer_phone, String event_description, 
 							String event_type, String event_location, 
 							String event_status, int max_seats) throws SQLException
 	{
-		ps.setInt(1, event_id);
-		ps.setString(2, event_name);
-		ps.setString(3,event_date);
-		ps.setString(4, organizer_email);
-		ps.setString(5, organizer_phone);
-		ps.setString(6, event_description);
-		ps.setString(7, event_type);
-		ps.setString(8, event_location);
-		ps.setString(9, event_status);
-		ps.setInt(10, max_seats);
+		//ps.setInt(1, event_id);
+		ps.setString(1, event_name);
+		ps.setString(2,event_date);
+		ps.setString(3, organizer_email);
+		ps.setString(4, organizer_phone);
+		ps.setString(5, event_description);
+		ps.setString(6, event_type);
+		ps.setString(7, event_location);
+		ps.setString(8, event_status);
+		ps.setInt(9, max_seats);
 		int i = ps.executeUpdate();
 		if(i>0)
 			return 1;
@@ -49,14 +50,13 @@ public class Dbfunctions
 			return 0;	
 	}
 	
-	public int insertparticipant(int booking_id, int event_id, String booked_date, String participant_name, String participant_email, String participant_phone) throws SQLException
+	public int insertparticipant(int event_id, String booked_date, String participant_name, String participant_email, String participant_phone) throws SQLException
 	{
-		ps.setInt(1, booking_id);
-		ps.setInt(2, event_id);
-		ps.setString(3,booked_date);
-		ps.setString(4, participant_name);
-		ps.setString(5, participant_email);
-		ps.setString(6, participant_phone);
+		ps3.setInt(1, event_id);
+		ps3.setString(2,booked_date);
+		ps3.setString(3, participant_name);
+		ps3.setString(4, participant_email);
+		ps3.setString(5, participant_phone);
 		int i = ps.executeUpdate();
 		if(i>0)
 			return 1;
